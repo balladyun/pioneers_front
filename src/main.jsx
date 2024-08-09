@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import Part from './pages/Part';
 import Test from './pages/Test';
 import Result from './pages/Result';
+import TestDetail from './pages/TestDetail';
 
 const router = createBrowserRouter([
   {
@@ -22,8 +23,12 @@ const router = createBrowserRouter([
         element: <Part />,
       },
       {
-        path: '/test',
+        path: '/test-overview',
         element: <Test />,
+      },
+      {
+        path: '/test',
+        element: <TestDetail />,
       },
       {
         path: '/result',
