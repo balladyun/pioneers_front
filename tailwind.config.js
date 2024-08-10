@@ -8,6 +8,7 @@ export default {
         background: '#F9F9F9',
         answer: '#999999',
         brown: '#927243',
+        gray: '#1E1D1C',
       },
       height: {
         'screen-minus-header': 'calc(100vh - 64px)',
