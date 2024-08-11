@@ -1,64 +1,101 @@
 import { useNavigate } from 'react-router-dom';
-import Background from '../assets/images/background.png';
-import BlackComma from '../assets/images/BlackComma.png';
-import InstaIcon from '../components/ui/InstaIcon';
-import KakaoIcon from '../components/ui/KakaoIcon';
-import BlogIcon from '../components/ui/BlogIcon';
-import LinkIcon from '../components/ui/LinkIcon';
+import { useState } from 'react';
+import YellowComma from '../assets/images/YellowComma.png';
+import questions from '../data/question';
+import Arrow from '../components/ui/Arrow';
 import Logo from '../components/ui/Logo';
 import menu from '../assets/icons/menu.svg';
-
-const TEXT_SHADOW = { textShadow: '1px 5px #ecc64d' };
+import { submitResult } from '../services/result';
 
 export default function Test() {
   const navigate = useNavigate();
+  const [result, setResult] = useState({});
+  const [currIndex, setCurrIndex] = useState(0);
+  const [isDisabled, setIsDisable] = useState(false);
+  const questionId = questions[currIndex].id;
+
+  const goBack = (value) => {
+    if (currIndex === 0) return;
+
+    const newResult = { ...result };
+    delete newResult[value];
+    setResult(newResult);
+    setCurrIndex((curr) => curr - 1);
+  };
+
+  const onSelectAnswer = async (value) => {
+    const yourAnswer = { ...result, [questionId]: value };
+    setResult(yourAnswer);
+
+    if (currIndex < questions.length - 1) {
+      setCurrIndex((prev) => prev + 1);
+    } else {
+      setIsDisable(true);
+      const finalResult = { ...yourAnswer };
+      try {
+        const mbtiType = await submitResult(finalResult);
+        navigate(`/result/${mbtiType}`);
+      } catch (error) {
+        console.error('Error navigating to result:', error);
+      }
+    }
+  };
+
+  const progressPercentage = ((currIndex + 1) / questions.length) * 100;
 
   return (
     <>
-      <header className='flex items-center justify-between p-5 bg-white'>
+      <header className='flex items-center justify-between p-5 bg-primary'>
         <Logo />
         <img src={menu} alt='menu' />
       </header>
-      <section className='mx-auto text-center'>
-        <article className='px-5 py-8 space-y-8 bg-primary'>
-          <div className='relative w-full'>
-            <img src={Background} alt='background' className='mx-auto' />
-            <span className='absolute w-full transform -translate-x-1/2 -translate-y-1/2 top-[45%] left-1/2'>
-              창업 멤버가 된 나의 진짜 모습은?
-            </span>
+      <section className='p-5 bg-background h-screen-minus-header'>
+        <div className='space-y-5'>
+          <div className='flex items-center justify-between'>
+            <button
+              type='button'
+              disabled={isDisabled}
+              onClick={() => goBack(questionId)}
+              className={`text-sm cursor-pointer disabled:cursor-auto ${currIndex === 0 ? 'pointer-events-none' : ''}`}
+            >
+              <div
+                className={`flex items-center gap-2 ${currIndex === 0 ? 'invisible' : 'visible'}`}
+              >
+                <Arrow />
+                <span>뒤로</span>
+              </div>
+            </button>
+            <div className='text-2xl font-jua'>창업 멤버 유형 테스트</div>
+            <span className='text-sm'>{currIndex + 1}/12</span>
           </div>
-          <div className='my-8 *:font-jua flex flex-col justify-center items-center text-6xl space-y-2 *:border-b-2 *:border-black'>
-            <div className='relative'>
-              <img src={BlackComma} alt='comma' className='absolute -right-14 -top-2' />
-              <span className='font-jua' style={TEXT_SHADOW}>
-                FUVE
-              </span>
-            </div>
-            <span style={TEXT_SHADOW}>창업 멤버 유형</span>
-            <span style={TEXT_SHADOW}>테스트</span>
+          <div className='w-full h-2 bg-white rounded-lg shadow-custom'>
+            <div
+              className='h-2 rounded-lg bg-primary'
+              style={{ width: `${progressPercentage}%` }}
+            />
           </div>
-          <button
-            className='w-2/3 py-3 text-lg text-white transition-all rounded-full bg-brown px-14 hover:brightness-110'
-            type='button'
-            onClick={() => navigate('/test/detail')}
-          >
-            테스트 시작!
-          </button>
-          <p className='text-sm'>참여자 수 | 000명</p>
+        </div>
+        <article className='flex flex-col w-full px-2 py-8 mt-48 bg-white rounded-3xl shadow-custom'>
+          <div className='relative'>
+            <img src={YellowComma} alt='comma' className='absolute -top-14 right-2' />
+            <h4 className='px-12 py-10 text-lg font-bold text-center'>
+              {questions[currIndex].question}
+            </h4>
+          </div>
+          <div className='p-5 space-y-3'>
+            {questions[currIndex].example.map(({ answer, value }) => (
+              <button
+                key={value}
+                disabled={isDisabled}
+                className='w-full p-5 transition-all border disabled:hover:brightness-100 rounded-2xl border-answer bg-background hover:brightness-90'
+                type='button'
+                onClick={() => onSelectAnswer(value)}
+              >
+                {answer}
+              </button>
+            ))}
+          </div>
         </article>
-      </section>
-      <section className='px-5 py-8 space-y-5 text-center bg-background'>
-        <h4 className='text-lg font-bold'>테스트 공유하기</h4>
-        <div className='flex items-center justify-center gap-2'>
-          <InstaIcon />
-          <KakaoIcon />
-          <BlogIcon />
-          <LinkIcon />
-        </div>
-        <div className='p-5 bg-white rounded-lg shadow-custom h-52'>
-          <h4 className='text-2xl font-jua'>가장 많은 유형</h4>
-          <p className='py-2 text-sm'>참여 통계는 24시간마다 갱신됩니다.</p>
-        </div>
       </section>
     </>
   );

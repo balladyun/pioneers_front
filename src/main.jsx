@@ -5,9 +5,9 @@ import App from './App';
 import './index.css';
 import Home from './pages/Home';
 import Part from './pages/Part';
-import Test from './pages/Test';
 import Result from './pages/Result';
-import TestDetail from './pages/TestDetail';
+import TestOverview from './pages/TestOverview';
+import Test from './pages/Test';
 
 const router = createBrowserRouter([
   {
@@ -24,14 +24,14 @@ const router = createBrowserRouter([
       },
       {
         path: '/test-overview',
-        element: <Test />,
+        element: <TestOverview />,
       },
       {
         path: '/test',
-        element: <TestDetail />,
+        element: <Test />,
       },
       {
-        path: '/result',
+        path: '/result/:id',
         element: <Result />,
       },
     ],
