@@ -51,11 +51,11 @@ export default function TestOverview() {
           <h4 className='text-lg font-bold'>테스트 공유하기</h4>
           <div className='flex items-center justify-center'>
             {/* To Do: 배포 후 복사될 링크 수정하기 */}
-            <CopyToClipboard className='copy' text='http://localhost:5173/test-overview'>
+            <CopyToClipboard className='copy' text={`${window.location.origin}/test-overview`}>
               <button
                 aria-label='copy-link'
                 type='button'
-                onClick={() => handleCopyClipBoard('http://localhost:5173/test-overview')}
+                onClick={() => handleCopyClipBoard(`${window.location.origin}/test-overview`)}
               >
                 <LinkIcon />
               </button>

@@ -53,11 +53,11 @@ export default function Result() {
         </div>
         <div className='flex flex-col items-center justify-center'>
           <h4 className='py-5 text-xl font-bold'>내 결과 공유하기</h4>
-          <CopyToClipboard className='copy' text={`http://localhost:5173${pathname}`}>
+          <CopyToClipboard className='copy' text={`${window.location.origin}${pathname}`}>
             <button
               aria-label='copy-link'
               type='button'
-              onClick={() => handleCopyClipBoard(`http://localhost:5173${pathname}`)}
+              onClick={() => handleCopyClipBoard(`${window.location.origin}${pathname}`)}
             >
               <LinkIcon />
             </button>
