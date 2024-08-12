@@ -34,7 +34,9 @@ export default function Test() {
       const finalResult = { ...yourAnswer };
       try {
         const mbtiType = await submitResult(finalResult);
-        navigate(`/result/${mbtiType}`);
+        setTimeout(() => {
+          navigate(`/result/${mbtiType}`);
+        }, 1000);
       } catch (error) {
         console.error('Error navigating to result:', error);
       }

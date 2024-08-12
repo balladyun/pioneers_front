@@ -22,6 +22,7 @@ export const submitResult = async (result) => {
 
 export const fetchResult = async (result) => {
   try {
+    // const res = await fetch('../data/result.json');
     const res = await fetch(`${BASE_URL}/${result}`, {
       method: 'GET',
       headers: {

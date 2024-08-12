@@ -9,6 +9,7 @@ export default {
         answer: '#999999',
         brown: '#927243',
         gray: '#1E1D1C',
+        share: '#D9D9D9',
       },
       height: {
         'screen-minus-header': 'calc(100vh - 64px)',

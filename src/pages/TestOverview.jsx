@@ -5,7 +5,6 @@ import BlackComma from '../assets/images/BlackComma.png';
 import LinkIcon from '../components/ui/LinkIcon';
 import Logo from '../components/ui/Logo';
 import menu from '../assets/icons/menu.svg';
-import { handleCopyClipBoard } from '../utils/copyClipboard';
 
 const TEXT_SHADOW = { textShadow: '1px 5px #ecc64d' };
 
@@ -23,7 +22,7 @@ export default function TestOverview() {
           <article className='px-5 py-8 space-y-8 bg-primary'>
             <div className='relative w-full'>
               <img src={Background} alt='background' className='mx-auto' />
-              <span className='absolute w-full transform -translate-x-1/2 -translate-y-1/2 top-[45%] left-1/2 font-bold'>
+              <span className='absolute w-full transform -translate-x-1/2 -translate-y-1/2 top-[45%] left-1/2 font-bold text-lg'>
                 창업 멤버가 된 나의 진짜 모습은?
               </span>
             </div>
@@ -38,7 +37,7 @@ export default function TestOverview() {
               <span style={TEXT_SHADOW}>테스트</span>
             </div>
             <button
-              className='w-2/3 py-3 text-lg text-white transition-all rounded-full bg-brown px-14 hover:brightness-110'
+              className='w-2/3 py-3 text-2xl text-white transition-all rounded-full bg-brown px-14 hover:brightness-110'
               type='button'
               onClick={() => navigate('/test')}
             >
@@ -47,19 +46,24 @@ export default function TestOverview() {
             {/* <p className='text-sm'>참여자 수 | 000명</p> */}
           </article>
         </article>
-        <article className='px-5 py-8 space-y-5 text-center bg-background'>
-          <h4 className='text-lg font-bold'>테스트 공유하기</h4>
-          <div className='flex items-center justify-center'>
-            {/* To Do: 배포 후 복사될 링크 수정하기 */}
-            <CopyToClipboard className='copy' text={`${window.location.origin}/test-overview`}>
-              <button
-                aria-label='copy-link'
-                type='button'
-                onClick={() => handleCopyClipBoard(`${window.location.origin}/test-overview`)}
+        <article className='px-5 space-y-5 text-center bg-background'>
+          <div className='pt-10 pb-5'>
+            <h4 className='text-lg font-bold'>테스트 공유하기</h4>
+            <div className='flex items-center justify-center mt-5'>
+              <CopyToClipboard
+                text={`${window.location.origin}/test-overview`}
+                onCopy={() => alert('링크가 복사되었습니다!')}
               >
-                <LinkIcon />
-              </button>
-            </CopyToClipboard>
+                <button
+                  className='flex items-center justify-between gap-3 px-10 py-3 rounded-full bg-share'
+                  aria-label='copy-link'
+                  type='button'
+                >
+                  <LinkIcon />
+                  <span>테스트 링크 복사</span>
+                </button>
+              </CopyToClipboard>
+            </div>
           </div>
           <div className='p-5 bg-white rounded-lg shadow-custom'>
             <h4 className='text-2xl font-jua'>가장 많은 유형</h4>
