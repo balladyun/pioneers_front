@@ -2,10 +2,10 @@ import { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { IoArrowForward } from 'react-icons/io5';
 import { textContent } from '../data/card';
-import card1 from '../assets/card-1.svg';
-import card2 from '../assets/card-2.svg';
-import card3 from '../assets/card-3.svg';
-import collection from '../assets/card-collection.svg';
+import card1 from '../assets/images/card-1.svg';
+import card2 from '../assets/images/card-2.svg';
+import card3 from '../assets/images/card-3.svg';
+import collection from '../assets/images/card-collection.svg';
 
 export default function Card() {
   const navigate = useNavigate();

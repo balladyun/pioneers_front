@@ -13,7 +13,7 @@ export default function About() {
   }, []);
 
   return (
-    <section className='p-5 bg-background h-screen-minus-header'>
+    <section className='h-full p-5 bg-background'>
       <div className='flex items-center justify-between'>
         <button
           className='text-[15px] px-5 py-2 rounded-full shadow-lg bg-background'
@@ -30,14 +30,14 @@ export default function About() {
           파트별 사용법
         </button>
       </div>
-      <div className='flex flex-col items-center justify-center gap-2 p-5 mt-8'>
+      <div className='flex flex-col items-center justify-center gap-2 p-5 my-5'>
         <h4 className='text-title text-[15px]'>어떤 분에게 필요할까요?</h4>
         <p className='text-2xl font-bold'>창업팀, 대학생 창업 동아리</p>
       </div>
-      <section className='relative pb-16 mt-16 space-y-4'>
+      <section className='relative space-y-4 pb-[172px] mt-7'>
         <img className='absolute -left-5 -top-9' src={doubleQuoteLeft} alt='double-quote-left' />
         <img
-          className='absolute bottom-5 -right-5'
+          className='absolute bottom-[137px] -right-5'
           src={doubleQuoteRight}
           alt='double-quote-right'
         />
