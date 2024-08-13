@@ -65,12 +65,10 @@ export default function Test() {
           <div className='h-2 rounded-lg bg-primary' style={{ width: `${progressPercentage}%` }} />
         </div>
       </div>
-      <article className='w-full px-2 py-8 bg-white h-fit rounded-3xl shadow-custom'>
+      <article className='w-full px-2 py-5 bg-white rounded-3xl shadow-custom'>
         <div className='relative'>
-          <img src={YellowComma} alt='comma' className='absolute -top-14 right-2' />
-          <h4 className='px-12 py-10 text-lg font-bold text-center'>
-            {questions[currIndex].question}
-          </h4>
+          <img src={YellowComma} alt='comma' className='absolute -top-11 right-2' />
+          <h4 className='p-6 text-lg font-bold text-center'>{questions[currIndex].question}</h4>
         </div>
         <div className='p-5 space-y-3'>
           {questions[currIndex].example.map(({ answer, value }) => (

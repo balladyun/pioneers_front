@@ -5,7 +5,7 @@ import card2 from '../assets/images/card2.svg';
 import card3 from '../assets/images/card3.svg';
 import next from '../assets/icons/next.svg';
 import cardall from '../assets/images/cardall.svg';
-import know from '../assets/icons/know.svg'; // 추가된 이미지
+import know from '../assets/icons/know.svg';
 
 export default function Card() {
   const navigate = useNavigate();
@@ -27,18 +27,18 @@ export default function Card() {
     if (cardImage === card1) {
       setCardImage(card2);
       setTextContent({
-        count: '[카드 10개]',
-        header: 'PART 2. 아이디어 확장',
-        description: '다양한 가능성을 탐구하고 실현 가능성을 검토하세요.',
+        count: '[카드 14개, 밸런스 게임 1개]',
+        header: 'PART 2. 네가 생각하는 창업은 뭐야?',
+        description: '창업에 대한 가치를 중심으로',
       });
     } else if (cardImage === card2) {
       setCardImage(card3);
       setButtonImage(know); // 두 번째 클릭 시 버튼 이미지 변경
       setButtonSize({ width: '12rem', height: '6rem' });
       setTextContent({
-        count: '[카드 8개]',
-        header: 'PART 3. 실행 계획 수립',
-        description: '구체적인 실행 계획을 세워 나가세요.',
+        count: '[카드 16개]',
+        header: 'PART 3. 아이디어 발굴하기',
+        description: '구체적인 아이디어보다 무엇을, 왜, 어떻게 구현할지를 기반으로',
       });
     }
   };
