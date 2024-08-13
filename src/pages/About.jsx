@@ -30,7 +30,7 @@ export default function About() {
           파트별 사용법
         </button>
       </div>
-      <div className='flex flex-col items-center justify-center gap-2 p-5 mt-4'>
+      <div className='flex flex-col items-center justify-center gap-2 p-5 mt-8'>
         <h4 className='text-title text-[15px]'>어떤 분에게 필요할까요?</h4>
         <p className='text-2xl font-bold'>창업팀, 대학생 창업 동아리</p>
       </div>

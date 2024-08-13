@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import fuveimage from '../assets/images/fuveimage.svg';
+import logo from '../assets/logo.svg';
 
 export default function Home() {
   const navigate = useNavigate();
@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <section className='min-h-screen bg-primary'>
       <div className='flex justify-center'>
-        <img src={fuveimage} alt='fuveimage' />
+        <img src={logo} alt='fuveimage' />
       </div>
       <article className='p-5 mt-5'>
         <h2 className='text-2xl font-bold'>

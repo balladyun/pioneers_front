@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { subscribeNewsLetter } from '../services/subscribe';
 
 export default function Subscribe() {
@@ -24,6 +24,10 @@ export default function Subscribe() {
       console.error(error);
     }
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <section className='min-h-screen-minus-header bg-primary'>
