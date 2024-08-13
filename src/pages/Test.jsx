@@ -65,7 +65,7 @@ export default function Test() {
           <div className='h-2 rounded-lg bg-primary' style={{ width: `${progressPercentage}%` }} />
         </div>
       </div>
-      <article className='w-full px-2 py-5 bg-white rounded-3xl shadow-custom'>
+      <article className='w-full px-2 py-5 bg-white mt-7 rounded-3xl shadow-custom'>
         <div className='relative'>
           <img src={YellowComma} alt='comma' className='absolute -top-11 right-2' />
           <h4 className='p-5 text-lg font-bold text-center'>{questions[currIndex].question}</h4>
