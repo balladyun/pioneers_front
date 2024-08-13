@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { textContent } from '../data/card';
 import { IoArrowForward } from 'react-icons/io5';
+import { textContent } from '../data/card';
 import card1 from '../assets/card-1.svg';
 import card2 from '../assets/card-2.svg';
 import card3 from '../assets/card-3.svg';
