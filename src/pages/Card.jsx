@@ -1,15 +1,16 @@
 import { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { textContent } from '../data/card';
 import { IoArrowForward } from 'react-icons/io5';
 import card1 from '../assets/card-1.svg';
 import card2 from '../assets/card-2.svg';
 import card3 from '../assets/card-3.svg';
 import collection from '../assets/card-collection.svg';
-import { textContent } from '../data/card';
 
 export default function Card() {
   const navigate = useNavigate();
   const [cardImage, setCardImage] = useState(card1);
+  const [content, setContent] = useState(textContent[0]);
   // const [textContent, setTextContent] = useState({
   //   count: '[카드 14개]',
   //   header: 'PART 1. 관심사 찾기',
@@ -48,8 +49,10 @@ export default function Card() {
   const handleCardChange = () => {
     if (cardImage === card1) {
       setCardImage(card2);
+      setContent(textContent[1]);
     } else if (cardImage === card2) {
       setCardImage(card3);
+      setContent(textContent[2]);
     } else {
       sectionTwoRef.current.scrollIntoView({ behavior: 'smooth' });
     }
@@ -80,10 +83,10 @@ export default function Card() {
               /> */}
             </div>
           </div>
-          <div className='flex flex-col justify-center items-start w-fit mx-auto mt-10 mb-10 p-5 *:text-white'>
-            <h5 className='mb-3 text-base'>{textContent.count}</h5>
-            <p className='text-lg font-bold'>{textContent.header}</p>
-            <p className='text-lg '>{textContent.description}</p>
+          <div className='flex flex-col justify-center items-start w-96 mx-auto mt-16 mb-10 p-5 *:text-white'>
+            <h5 className='mb-3 text-base'>{content.title}</h5>
+            <p className='mb-1 text-lg font-bold'>{content.subtitle}</p>
+            <p className='text-lg '>{content.description}</p>
           </div>
         </section>
 
