@@ -90,7 +90,7 @@ export default function Card() {
           </div>
         </section>
 
-        <section>
+        <section ref={sectionTwoRef}>
           <h1 className='text-2xl font-bold text-white mb-7'>사용 방법</h1>
           <section className='*:bg-[#f3eadf] flex flex-col gap-5 mb-10'>
             <article className='p-6 space-y-2 rounded-xl'>
@@ -162,7 +162,7 @@ export default function Card() {
             </div>
           </div>
         </div> */}
-      <section className='p-8 overflow-hidden bg-gray' ref={sectionTwoRef}>
+      <section className='p-8 overflow-hidden bg-gray'>
         <article className='p-8 bg-black rounded-xl'>
           <h4 className='text-lg text-white opacity-70'>창업을 고민하는 분들을 위한 카드</h4>
           <p className='text-lg font-bold text-primary'>&lsquo;창업 길잡이 카드&rsquo;</p>
