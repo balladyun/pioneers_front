@@ -44,7 +44,7 @@ export default function Test() {
   const progressPercentage = ((currIndex + 1) / questions.length) * 100;
 
   return (
-    <section className='flex flex-col justify-between p-5 bg-background h-screen-minus-header'>
+    <section className='flex flex-col justify-between p-5 bg-background min-h-screen-minus-header'>
       <div className='space-y-5'>
         <div className='flex items-center justify-between'>
           <button
