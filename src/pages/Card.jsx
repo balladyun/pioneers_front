@@ -1,8 +1,5 @@
 import React, { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-
-import WhiteLogo from '../components/ui/WhiteLogo';
-import whitemenu from '../assets/icons/whitemenu.svg';
 import card1 from '../assets/images/card1.svg';
 import card2 from '../assets/images/card2.svg';
 import card3 from '../assets/images/card3.svg';
@@ -50,11 +47,6 @@ export default function Home() {
 
   return (
     <>
-      <header className='flex items-center justify-between p-5 bg-black'>
-        <WhiteLogo />
-        <img src={whitemenu} alt='menu' />
-      </header>
-
       <section className='min-h-screen p-8 bg-black'>
         <div
           className='mt-6 text-2xl font-bold text-center text-white'
@@ -145,7 +137,7 @@ export default function Home() {
           <img src={cardall} alt='cardall' className='w-full max-w-[400px] h-auto' />
         </div>
 
-        <div className='max-w-md p-4 mx-auto mt-5 mt-10'>
+        <div className='max-w-md p-4 mx-auto mt-10'>
           <p className='text-base font-normal leading-7 text-left text-white'>
             창업 길잡이카드는 예비 창업자 여러분들에게 창의적이고 체계적인 접근방법을 제공하여
             여러분의 열정과 아이디어를 현실로 이끌어가는 데 도움을 주기 위해 만들어졌습니다.

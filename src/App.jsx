@@ -1,11 +1,14 @@
 import { Outlet } from 'react-router-dom';
 import Layout from './components/Layout';
+import { MenuProvider } from './context/MenuProvider';
 
 function App() {
   return (
-    <Layout>
-      <Outlet />
-    </Layout>
+    <MenuProvider>
+      <Layout>
+        <Outlet />
+      </Layout>
+    </MenuProvider>
   );
 }
 

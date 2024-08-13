@@ -4,12 +4,13 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import './index.css';
 import Home from './pages/Home';
-import Need from './pages/Need';
-import Part from './pages/Part';
 import Card from './pages/Card';
 import Result from './pages/Result';
 import TestOverview from './pages/TestOverview';
 import Test from './pages/Test';
+import About from './pages/About';
+import Part from './pages/Part';
+import Subscribe from './pages/Subscribe';
 
 const router = createBrowserRouter([
   {
@@ -21,8 +22,8 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: '/need',
-        element: <Need />,
+        path: '/about',
+        element: <About />,
       },
       {
         path: '/part',
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
       {
         path: '/card',
         element: <Card />,
+      },
+      {
+        path: '/subscribe',
+        element: <Subscribe />,
       },
       {
         path: '/test-overview',

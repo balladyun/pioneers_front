@@ -10,6 +10,7 @@ export default {
         brown: '#927243',
         gray: '#1E1D1C',
         share: '#D9D9D9',
+        title: '#544C12',
       },
       height: {
         'screen-minus-header': 'calc(100vh - 64px)',

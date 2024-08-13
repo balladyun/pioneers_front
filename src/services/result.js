@@ -2,7 +2,7 @@ const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 export const submitResult = async (result) => {
   try {
-    const res = await fetch(`${BASE_URL}`, {
+    const res = await fetch(`${BASE_URL}/mbti/result`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -22,8 +22,7 @@ export const submitResult = async (result) => {
 
 export const fetchResult = async (result) => {
   try {
-    // const res = await fetch('../data/result.json');
-    const res = await fetch(`${BASE_URL}/${result}`, {
+    const res = await fetch(`${BASE_URL}/mbti/result/${result}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
