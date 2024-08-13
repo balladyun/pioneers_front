@@ -5,7 +5,7 @@ export default function Home() {
   const navigate = useNavigate();
 
   return (
-    <section className='h-screen-minus-header bg-primary'>
+    <section className='min-h-screen bg-primary'>
       <div className='flex justify-center'>
         <img src={fuveimage} alt='fuveimage' />
       </div>

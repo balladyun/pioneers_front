@@ -2,9 +2,9 @@ import Header from './Header';
 
 export default function Layout({ children }) {
   return (
-    <main className='mx-auto max-w-[480px] h-screen'>
+    <main className='flex flex-col min-h-screen mx-auto max-w-[480px]'>
       <Header />
-      {children}
+      <section className='grow'>{children}</section>
     </main>
   );
 }

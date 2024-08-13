@@ -31,6 +31,18 @@ export default function Header() {
     getBgColor();
   }, [pathname]);
 
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [isMenuOpen]);
+
   const getMenuIcon = () => {
     if (pathname === '/card') {
       return whiteMenu;
@@ -40,9 +52,17 @@ export default function Header() {
 
   const getLogo = () => {
     if (pathname === '/card' && !isMenuOpen) {
-      return <WhiteLogo />;
+      return (
+        <Link to='/'>
+          <WhiteLogo />
+        </Link>
+      );
     }
-    return <Logo />;
+    return (
+      <Link to='/'>
+        <Logo />
+      </Link>
+    );
   };
 
   return (

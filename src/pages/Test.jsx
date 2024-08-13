@@ -44,7 +44,7 @@ export default function Test() {
   const progressPercentage = ((currIndex + 1) / questions.length) * 100;
 
   return (
-    <section className='p-5 bg-background h-screen-minus-header'>
+    <section className='flex flex-col justify-between p-5 bg-background h-screen-minus-header'>
       <div className='space-y-5'>
         <div className='flex items-center justify-between'>
           <button
@@ -65,7 +65,7 @@ export default function Test() {
           <div className='h-2 rounded-lg bg-primary' style={{ width: `${progressPercentage}%` }} />
         </div>
       </div>
-      <article className='flex flex-col w-full px-2 py-8 mt-48 bg-white rounded-3xl shadow-custom'>
+      <article className='w-full px-2 py-8 bg-white h-fit rounded-3xl shadow-custom'>
         <div className='relative'>
           <img src={YellowComma} alt='comma' className='absolute -top-14 right-2' />
           <h4 className='px-12 py-10 text-lg font-bold text-center'>
@@ -86,6 +86,7 @@ export default function Test() {
           ))}
         </div>
       </article>
+      <div />
     </section>
   );
 }

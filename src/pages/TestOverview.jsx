@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { CopyToClipboard } from 'react-copy-to-clipboard/src';
 import Background from '../assets/images/background.png';
@@ -10,8 +11,12 @@ const TEXT_SHADOW = { textShadow: '1px 5px #ecc64d' };
 export default function TestOverview() {
   const navigate = useNavigate();
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
-    <section className='h-full'>
+    <section>
       <article className='mx-auto text-center'>
         <article className='px-5 py-8 space-y-8 bg-primary'>
           <div className='relative w-full'>
@@ -27,11 +32,11 @@ export default function TestOverview() {
                 FUVE
               </span>
             </div>
-            <span style={TEXT_SHADOW}>창업 멤버 유형</span>
+            <span style={TEXT_SHADOW}>창업 멤버력</span>
             <span style={TEXT_SHADOW}>테스트</span>
           </div>
           <button
-            className='w-2/3 py-3 text-2xl text-white transition-all rounded-full bg-brown px-14 hover:brightness-110'
+            className='py-3 text-2xl text-white transition-all rounded-full bg-brown px-14 hover:brightness-110'
             type='button'
             onClick={() => navigate('/test')}
           >
@@ -62,7 +67,7 @@ export default function TestOverview() {
         <div className='p-5 bg-white rounded-lg shadow-custom'>
           <h4 className='text-2xl font-jua'>가장 많은 유형</h4>
           <p className='py-2 text-sm'>현재 가장 많은 창업가 유형은 누구일까요?</p>
-          <img src={CreativePropeller} alt='the-most' className='my-5 ml-14' />
+          <img src={CreativePropeller} alt='the-most' className='mx-auto my-5' />
           <p className='text-lg font-bold'>창의적 추진자</p>
         </div>
       </article>

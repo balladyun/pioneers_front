@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import card1 from '../assets/images/card1.svg';
 import card2 from '../assets/images/card2.svg';
@@ -7,7 +7,7 @@ import next from '../assets/icons/next.svg';
 import cardall from '../assets/images/cardall.svg';
 import know from '../assets/icons/know.svg'; // 추가된 이미지
 
-export default function Home() {
+export default function Card() {
   const navigate = useNavigate();
   const [cardImage, setCardImage] = useState(card1);
   const [buttonImage, setButtonImage] = useState(next);
@@ -18,6 +18,10 @@ export default function Home() {
     description: '내가 속한 집단, 취미, 열정을 기반으로',
   });
   const sectionTwoRef = useRef(null);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const handleNextClick = () => {
     if (cardImage === card1) {
@@ -47,7 +51,7 @@ export default function Home() {
 
   return (
     <>
-      <section className='min-h-screen p-8 bg-black'>
+      <section className='h-full p-8 bg-black'>
         <div
           className='mt-6 text-2xl font-bold text-center text-white'
           style={{ fontFamily: 'Arial, sans-serif' }}
@@ -82,16 +86,39 @@ export default function Home() {
           </div>
         </div>
 
-        <div
-          className='mt-24 ml-6 text-2xl font-bold text-left text-white'
-          style={{ fontFamily: 'Arial, sans-serif' }}
-        >
-          사용 방법
-        </div>
+        <h1 className='text-2xl font-bold text-white mb-7'>사용 방법</h1>
 
-        <div className='relative'>
-          <div className='w-[24.5rem] h-[21rem] bg-[#f3eadf] rounded-3xl border border-white/13 shadow-lg mx-auto mt-10'>
-            <div className='flex flex-col gap-4 items-start justify-start w-[307px] mx-auto mt-10 ml-8'>
+        <section className='*:bg-[#f3eadf] flex flex-col gap-5 mb-10'>
+          <article className='p-6 space-y-2 rounded-xl'>
+            <h2 className='text-lg font-bold'>1. 예비 동업자와 함께 하기</h2>
+            <ul className='space-y-4'>
+              <li>
+                - 카드를 순서대로 뒤집으며 함께 플레이하는 친구들과 자유롭게 이야기를 나누세요.
+              </li>
+              <li>
+                - 대답하면서 메모를 해도 좋고, 아이스 브레이킹 카드처럼 가볍게 사용해도 좋아요.
+              </li>
+              <li>
+                - 친구들과 서로가 꿈꾸는 창업을 알아보고 효율적으로 아이디에이션 과정을
+                진행해보세요.
+              </li>
+            </ul>
+          </article>
+          <article className='p-6 space-y-2 rounded-xl'>
+            <h2 className='text-lg font-bold'>2. 나의 창업 아이템을 구체화하기</h2>
+            <ul className='space-y-4'>
+              <li>
+                - 카드가 이끄는 대로 순서대로 질문에 답하며 자신의 창업 의지를 구체화해보세요.
+              </li>
+              <li>- 막연했던 아이디어나 창업에 대한 생각을 확장해보세요.</li>
+              <li>- 진행하다가 답변이 막힐 때는 힌트를 참고해보세요.</li>
+            </ul>
+          </article>
+        </section>
+
+        {/* <div className='relative'>
+          <div className='bg-[#f3eadf] '>
+            <div className='flex flex-col items-start justify-start gap-4 mx-auto mt-10 ml-8'>
               <div className='text-left font-bold text-xl leading-7 text-[#1e1d1c]'>
                 1. 예비 동업자와 함께 하기
               </div>
@@ -110,8 +137,8 @@ export default function Home() {
             </div>
           </div>
 
-          <div className='w-[24.5rem] h-[21rem] bg-[#f3eadf] rounded-3xl border border-white/13 shadow-lg mx-auto mt-6'>
-            <div className='flex flex-col gap-4 items-start justify-start w-[307px] mx-auto mt-10 ml-8'>
+          <div className='bg-[#f3eadf]'>
+            <div className='flex flex-col items-start justify-start gap-4 mx-auto mt-10 ml-8'>
               <div className='text-left font-bold text-xl leading-7 text-[#1e1d1c]'>
                 2. 나의 창업 아이템을 구체화하기
               </div>
@@ -129,10 +156,10 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </section>
 
-      <section className='min-h-screen p-4 overflow-hidden bg-gray' ref={sectionTwoRef}>
+      <section className='p-4 overflow-hidden bg-gray' ref={sectionTwoRef}>
         <div className='flex justify-center mt-10'>
           <img src={cardall} alt='cardall' className='w-full max-w-[400px] h-auto' />
         </div>
@@ -149,9 +176,9 @@ export default function Home() {
         </div>
       </section>
 
-      <article className='bg-black p-4 flex justify-center h-auto min-h-[300px]'>
+      <article className='flex justify-center h-auto p-4 bg-black'>
         <button
-          className='bg-white rounded-full w-[216px] h-[42px] mt-12 shadow-md font-bold text-sm'
+          className='bg-white rounded-full w-[216px] h-[42px] mt-12 mb-20 shadow-md font-bold text-sm'
           type='button'
           onClick={() => navigate('/subscribe')}
         >

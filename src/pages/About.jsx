@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import doubleQuoteLeft from '../assets/images/double-quote-left.png';
 import doubleQuoteRight from '../assets/images/double-quote-right.png';
@@ -7,8 +8,12 @@ const article = 'bg-white shadow-lg p-7 rounded-2xl';
 export default function About() {
   const navigate = useNavigate();
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
-    <section className='p-5 h-screen-minus-header bg-background'>
+    <section className='p-5 bg-background h-screen-minus-header'>
       <div className='flex items-center justify-between'>
         <button
           className='text-[15px] px-5 py-2 rounded-full shadow-lg bg-background'
@@ -29,10 +34,10 @@ export default function About() {
         <h4 className='text-title text-[15px]'>어떤 분에게 필요할까요?</h4>
         <p className='text-2xl font-bold'>창업팀, 대학생 창업 동아리</p>
       </div>
-      <section className='relative space-y-4'>
+      <section className='relative pb-16 mt-16 space-y-4'>
         <img className='absolute -left-5 -top-9' src={doubleQuoteLeft} alt='double-quote-left' />
         <img
-          className='absolute -bottom-10 -right-5'
+          className='absolute bottom-5 -right-5'
           src={doubleQuoteRight}
           alt='double-quote-right'
         />

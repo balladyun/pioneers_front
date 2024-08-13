@@ -26,7 +26,7 @@ export default function Subscribe() {
   };
 
   return (
-    <section className='h-screen-minus-header bg-primary'>
+    <section className='min-h-screen-minus-header bg-primary'>
       <h1 className='py-10 text-3xl font-bold text-center'>스타트업 레터</h1>
       <article className='p-6 pt-0'>
         매주 활발히 활동 중인 창업가 한 분을 인터뷰하여, 창업에 대한 진정한 인사이트를
@@ -61,7 +61,7 @@ export default function Subscribe() {
         </label>
         <button
           type='submit'
-          className='px-16 py-3 mx-auto mt-8 text-base font-bold text-white rounded-full shadow-md bg-brown w-fit'
+          className='px-16 py-3 mx-auto mt-8 mb-10 text-base font-bold text-white rounded-full shadow-md bg-brown w-fit'
         >
           Subscribe
         </button>

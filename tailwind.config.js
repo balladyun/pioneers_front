@@ -15,6 +15,9 @@ export default {
       height: {
         'screen-minus-header': 'calc(100vh - 64px)',
       },
+      minHeight: {
+        'screen-minus-header': 'calc(100vh - 64px)',
+      },
       boxShadow: {
         custom: '0px 5px 0px 5px rgba(227,227,227,1)',
       },
