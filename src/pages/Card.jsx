@@ -83,7 +83,7 @@ export default function Card() {
               /> */}
             </div>
           </div>
-          <div className='flex flex-col justify-center items-start w-96 mx-auto mt-16 mb-10 p-5 *:text-white'>
+          <div className='flex flex-col justify-center items-start mx-auto mt-16 mb-10 p-5 *:text-white'>
             <h5 className='mb-3 text-base'>{content.title}</h5>
             <p className='mb-1 text-lg font-bold'>{content.subtitle}</p>
             <p className='text-lg '>{content.description}</p>
