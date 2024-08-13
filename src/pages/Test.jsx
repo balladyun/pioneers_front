@@ -75,7 +75,7 @@ export default function Test() {
             <button
               key={value}
               disabled={isDisabled}
-              className='w-full p-5 transition-all border disabled:hover:brightness-100 rounded-2xl border-answer bg-background hover:brightness-90'
+              className='w-full p-5 transition-all border rounded-2xl border-answer bg-background'
               type='button'
               onClick={() => onSelectAnswer(value)}
             >
