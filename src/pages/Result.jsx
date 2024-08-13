@@ -71,7 +71,7 @@ export default function Result() {
             <p className='pb-2 text-[15px] font-bold'>
               &ldquo;{data.similarTypeEntrepreneurs}&rdquo;
             </p>
-            <p className='text-base'>{data.entrepreneurDescription}</p>
+            <p className='text-base'>{data.description}</p>
           </div>
           <div>
             <h5 className='py-2 text-sm font-bold text-brown'>{data.name}의 장점은</h5>
