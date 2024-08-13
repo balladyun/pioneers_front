@@ -1,48 +1,56 @@
 import { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { IoArrowForward } from 'react-icons/io5';
 import card1 from '../assets/card-1.svg';
 import card2 from '../assets/card-2.svg';
 import card3 from '../assets/card-3.svg';
-import next from '../assets/icons/next.svg';
 import collection from '../assets/card-collection.svg';
-import know from '../assets/icons/know.svg';
+import { textContent } from '../data/card';
 
 export default function Card() {
   const navigate = useNavigate();
   const [cardImage, setCardImage] = useState(card1);
-  const [buttonImage, setButtonImage] = useState(next);
-  const [textContent, setTextContent] = useState({
-    count: '[카드 14개]',
-    header: 'PART 1. 관심사 찾기',
-    description: '내가 속한 집단, 취미, 열정을 기반으로',
-  });
+  // const [textContent, setTextContent] = useState({
+  //   count: '[카드 14개]',
+  //   header: 'PART 1. 관심사 찾기',
+  //   description: '내가 속한 집단, 취미, 열정을 기반으로',
+  // });
   const sectionTwoRef = useRef(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const handleNextClick = () => {
+  // const handleNextClick = () => {
+  //   if (cardImage === card1) {
+  //     setCardImage(card2);
+  //     setTextContent({
+  //       count: '[카드 14개, 밸런스 게임 1개]',
+  //       header: 'PART 2. 네가 생각하는 창업은 뭐야?',
+  //       description: '창업에 대한 가치를 중심으로',
+  //     });
+  //   } else if (cardImage === card2) {
+  //     setCardImage(card3);
+  //     setTextContent({
+  //       count: '[카드 16개]',
+  //       header: 'PART 3. 아이디어 발굴하기',
+  //       description: '구체적인 아이디어보다 무엇을, 왜, 어떻게 구현할지를 기반으로',
+  //     });
+  //   }
+  // };
+
+  // const handleKnowClick = () => {
+  //   if (buttonImage === sectionTwoRef.current) {
+  //     sectionTwoRef.current.scrollIntoView({ behavior: 'smooth' });
+  //   }
+  // };
+
+  const handleCardChange = () => {
     if (cardImage === card1) {
       setCardImage(card2);
-      setTextContent({
-        count: '[카드 14개, 밸런스 게임 1개]',
-        header: 'PART 2. 네가 생각하는 창업은 뭐야?',
-        description: '창업에 대한 가치를 중심으로',
-      });
     } else if (cardImage === card2) {
       setCardImage(card3);
-      setButtonImage(know);
-      setTextContent({
-        count: '[카드 16개]',
-        header: 'PART 3. 아이디어 발굴하기',
-        description: '구체적인 아이디어보다 무엇을, 왜, 어떻게 구현할지를 기반으로',
-      });
-    }
-  };
-
-  const handleKnowClick = () => {
-    if (buttonImage === know && sectionTwoRef.current) {
+    } else {
       sectionTwoRef.current.scrollIntoView({ behavior: 'smooth' });
     }
   };
@@ -52,21 +60,27 @@ export default function Card() {
       <section className='h-full p-8 bg-black'>
         <h1 className='text-2xl font-bold text-center text-white'>카드 패키지 구성</h1>
         <section>
-          <div className='relative flex justify-center mt-6'>
+          <div className='flex justify-center mt-6'>
             <img src={cardImage} alt='card' className='w-3/5 h-auto' />
-            <button
-              type='button'
-              onClick={buttonImage === know ? handleKnowClick : handleNextClick}
-              className=''
-            >
-              <img
+            <div className='relative'>
+              <button
+                type='button'
+                className={`absolute flex items-center bg-white rounded-full shadow-lg ${cardImage === card3 ? 'justify-between gap-2 w-auto -bottom-12 p-3 -right-12' : 'justify-center size-14 -bottom-5 p-2 -right-5'}`}
+                onClick={handleCardChange}
+              >
+                {cardImage === card3 && (
+                  <span className='font-bold whitespace-nowrap'>사용 방법 보러가기</span>
+                )}
+                <IoArrowForward className='size-8' />
+              </button>
+              {/* <img
                 src={buttonImage}
                 alt='next'
-                className='absolute cursor-pointer -bottom-10 right-8'
-              />
-            </button>
+                className='absolute bg-white rounded-full cursor-pointer -bottom-10 right-8 opacity-80 size-14'
+              /> */}
+            </div>
           </div>
-          <div className='flex flex-col justify-center items-start w-fit mx-auto mt-10 mb-16 p-5 *:text-white'>
+          <div className='flex flex-col justify-center items-start w-fit mx-auto mt-10 mb-10 p-5 *:text-white'>
             <h5 className='mb-3 text-base'>{textContent.count}</h5>
             <p className='text-lg font-bold'>{textContent.header}</p>
             <p className='text-lg '>{textContent.description}</p>
@@ -103,8 +117,8 @@ export default function Card() {
             </article>
           </section>
         </section>
-
-        {/* <div className='relative'>
+      </section>
+      {/* <div className='relative'>
           <div className='bg-[#f3eadf] '>
             <div className='flex flex-col items-start justify-start gap-4 mx-auto mt-10 ml-8'>
               <div className='text-left font-bold text-xl leading-7 text-[#1e1d1c]'>
@@ -145,16 +159,13 @@ export default function Card() {
             </div>
           </div>
         </div> */}
-      </section>
-
       <section className='p-8 overflow-hidden bg-gray' ref={sectionTwoRef}>
         <article className='p-8 bg-black rounded-xl'>
           <h4 className='text-lg text-white opacity-70'>창업을 고민하는 분들을 위한 카드</h4>
           <p className='text-lg font-bold text-primary'>&lsquo;창업 길잡이 카드&rsquo;</p>
           <img src={collection} alt='card-collection' className='mt-5' />
         </article>
-
-        <div className='max-w-md p-4 mx-auto mt-10'>
+        <article className='max-w-md p-4 mx-auto mt-10'>
           <p className='text-base font-normal leading-7 text-left text-white'>
             창업 길잡이카드는 예비 창업자 여러분들에게 창의적이고 체계적인 접근방법을 제공하여
             여러분의 열정과 아이디어를 현실로 이끌어가는 데 도움을 주기 위해 만들어졌습니다.
@@ -163,12 +174,12 @@ export default function Card() {
             여정에서의 승리를 응원합니다. 꿈을 향한 여러분들의 첫걸음을 믿고 나아가, 결실을 이룰 수
             있기를 바라겠습니다!
           </p>
-        </div>
+        </article>
       </section>
       <section className='flex items-center justify-center bg-black'>
         <button
           type='button'
-          className='px-4 py-3 my-20 font-bold bg-white rounded-full'
+          className='px-6 py-3 my-20 font-bold bg-white rounded-full'
           onClick={() => navigate('/subscribe')}
         >
           창업 뉴스레터 구독하기
