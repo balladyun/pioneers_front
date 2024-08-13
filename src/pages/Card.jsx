@@ -153,7 +153,7 @@ export default function Home() {
         <button
           className='bg-white rounded-full w-[216px] h-[42px] mt-12 shadow-md font-bold text-sm'
           type='button'
-          onClick={() => navigate('/Need')}
+          onClick={() => navigate('/subscribe')}
         >
           창업 뉴스레터 구독하기
         </button>
