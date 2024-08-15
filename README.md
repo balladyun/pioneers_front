@@ -3,7 +3,7 @@
 <div align='center'>
 <h1>FUVE</h1>
 
-⭐2024 Blaybus MVP 개발 해커톤 주제 2. 랜딩 페이지 제작 Pioneers 팀⭐
+⭐2024 Blaybus MVP 개발 해커톤 주제 2. 랜딩 페이지 제작 Pioneers 팀⭐<br />
 ✨인기상 수상</div>
 
 ## 🎤 프로젝트 소개
