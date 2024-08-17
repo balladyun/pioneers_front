@@ -20,7 +20,7 @@ export default function TestOverview() {
       <article className='mx-auto text-center'>
         <article className='px-5 py-8 space-y-8 bg-primary'>
           <div className='relative w-full'>
-            <img src={Background} alt='background' className='mx-auto' />
+            <img src={Background} alt='background' className='mx-auto' loading='lazy' />
             <span className='absolute w-full transform -translate-x-1/2 -translate-y-1/2 top-[45%] left-1/2 font-bold text-lg'>
               창업 멤버가 된 나의 진짜 모습은?
             </span>

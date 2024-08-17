@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <section className='min-h-screen bg-primary'>
       <div className='flex justify-center'>
-        <img src={logo} alt='fuveimage' />
+        <img src={logo} alt='fuveimage' loading='lazy' />
       </div>
       <article className='p-5 mt-5'>
         <h2 className='text-2xl font-bold'>
