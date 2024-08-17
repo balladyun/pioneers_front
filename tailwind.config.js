@@ -22,7 +22,7 @@ export default {
         custom: '0px 5px 0px 5px rgba(227,227,227,1)',
       },
       fontFamily: {
-        jua: ['Jua', 'sans-serif'],
+        jua: ['Jua', 'Arial', 'sans-serif'],
       },
     },
   },
