@@ -17,7 +17,7 @@ export default function Home() {
           <br />
           &lsquo;창업 길잡이카드&rsquo;입니다.
         </h2>
-        <p className='mt-4 *:text-base font-normal'>
+        <p className='min-h-full mt-4 *:text-base font-normal'>
           안녕하세요! 창업을 고민하는 분들을 위한 카드, &lsquo;창업 길잡이카드&rsquo;입니다. 이
           카드는 세 단계 과정을 통해 누구나 쉽게 창업에 입문할 수 있도록 길을 안내해 드립니다.
           카드를 플레이하는 방법은 두 가지가 있습니다.{' '}
