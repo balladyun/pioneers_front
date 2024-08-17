@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <section className='min-h-screen bg-primary'>
       <div className='flex justify-center'>
-        <img src={logo} width='100%' height='100%' alt='logo' />
+        <img src={logo} width='100%' height='auto' className='object-cover' alt='logo' />
       </div>
       <article className='min-h-full p-5 mt-5'>
         <h2 className='text-2xl font-bold'>
