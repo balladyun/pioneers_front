@@ -1,9 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { IoMenu, IoCloseSharp } from 'react-icons/io5';
 import Logo from './ui/Logo';
-import menuIcon from '../assets/icons/menu.svg';
-import closeIcon from '../assets/icons/closeIcon.svg';
-import whiteMenu from '../assets/icons/whitemenu.svg';
 import { useMenu } from '../context/MenuProvider';
 import WhiteLogo from './ui/WhiteLogo';
 
@@ -45,21 +43,21 @@ export default function Header() {
 
   const getMenuIcon = () => {
     if (pathname === '/card') {
-      return whiteMenu;
+      return <IoMenu className='text-white size-7' />;
     }
-    return menuIcon;
+    return <IoMenu className='size-7' />;
   };
 
   const getLogo = () => {
     if (pathname === '/card' && !isMenuOpen) {
       return (
-        <Link to='/'>
+        <Link aria-label='home' to='/'>
           <WhiteLogo />
         </Link>
       );
     }
     return (
-      <Link to='/'>
+      <Link aria-label='home' to='/'>
         <Logo />
       </Link>
     );
@@ -70,8 +68,8 @@ export default function Header() {
       className={`relative flex items-center justify-between p-5 ${isMenuOpen ? 'bg-primary' : bgColor}`}
     >
       {getLogo()}
-      <button type='button' onClick={toggleMenu}>
-        <img src={isMenuOpen ? closeIcon : getMenuIcon()} alt='menu' />
+      <button aria-label='menu' type='button' onClick={toggleMenu}>
+        {isMenuOpen ? <IoCloseSharp className='size-7' /> : getMenuIcon()}
       </button>
       {isMenuOpen && (
         <nav className='absolute left-0 z-20 w-full h-screen-minus-header top-16 bg-primary'>

@@ -9,7 +9,7 @@ export default function Home() {
       <div className='flex justify-center'>
         <img src={logo} width='100%' height='100%' alt='logo' />
       </div>
-      <article className='p-5 mt-5'>
+      <article className='min-h-full p-5 mt-5'>
         <h2 className='text-2xl font-bold'>
           안녕하세요!
           <br />
